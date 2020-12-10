@@ -1,0 +1,116 @@
+.header {
+  width: 100%;
+  margin: 0;
+  height: 169px;
+  padding: 0 5%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 0 3.125%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 80px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header {
+    padding: 0 15%;
+  }
+}
+
+.header__logo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 48px;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .header__logo-container {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+}
+
+.header__search {
+  width: 288px;
+  height: 48px;
+  margin-bottom: 8px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 768px) {
+  .header__search {
+    margin: 0;
+    width: 225px;
+  }
+}
+
+.header__search-container {
+  width: 288px;
+  margin: 0 auto;
+}
+
+.header__user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.header__user-button {
+  background-color: #0095ff;
+  color: white;
+  font-family: "Avenir";
+  font-weight: 500;
+  border-radius: 4px;
+  font-size: 17px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  height: 48px;
+  width: 224px;
+  margin: 0 16px 16px 0;
+}
+
+.header__user-button:hover {
+  background-color: #0065ad;
+}
+
+@media screen and (min-width: 768px) {
+  .header__user-button {
+    margin: 0 24px;
+    width: 110px;
+  }
+}
+
+.header__user-picture {
+  width: 48px;
+  height: 48px;
+  border-radius: 25px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: 0% 0;
+  object-position: 0% 0;
+}
