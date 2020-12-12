@@ -1,16 +1,112 @@
 @import "../../styles/styles.scss";
 
 .video {
-  width: 100%;
-  margin: 0;
+  background-image: url("../../assets/images/video-list-0.jpg");
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+  height: calc(9 / 16 * 100vw);
+  display: flex;
+  padding: 0 5%;
+  position: relative;
 
   &__video {
     width: 100%;
-    height: 100%;
 
     &-container {
-      margin-bottom: 32px;
-      height: calc(9 / 16 * 100vw);
+      width: 100%;
+      max-width: 700px;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    margin-bottom: 10px;
+
+    &-play {
+      border: 0;
+      outline: 0;
+      height: 24px;
+      width: 16px;
+
+      &-container {
+        width: 56px;
+        height: 40px;
+        background-color: rgba(30, 30, 30, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+      }
+    }
+
+    &-progress {
+      flex-basis: 1%;
+      flex-grow: 1;
+      background-color: rgba(30, 30, 30, 0.8);
+      height: 40px;
+      margin: 0 2.5%;
+      border-radius: 4px;
+      box-sizing: border-box;
+      position: relative;
+
+      @include tablet {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 2.0833%;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        border-top: 5px solid black;
+        top: 44%;
+        left: 50%;
+        width: 84%;
+        transform: translate(-50%);
+        border-radius: 4px;
+
+        @include tablet {
+          left: 43%;
+          width: 75%;
+        }
+      }
+
+      &-numbers {
+        display: none;
+
+        @include tablet {
+          display: inline;
+          color: white;
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    &-container-size-volume {
+      box-sizing: border-box;
+      background-color: rgba(30, 30, 30, 0.8);
+      height: 40px;
+      display: flex;
+      justify-content: space-evenly;
+      width: 80px;
+      align-items: center;
+      border-radius: 4px;
+    }
+
+    &-size {
+      height: 24px;
+      width: 16px;
+    }
+
+    &-volume {
+      height: 24px;
+      width: 16px;
     }
   }
 }

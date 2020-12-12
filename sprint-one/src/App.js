@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Video />
       <main className="main">
-        <Video />
         <div className="main__text-container">
           <Player />
           <Conversation />

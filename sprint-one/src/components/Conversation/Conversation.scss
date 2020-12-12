@@ -18,10 +18,6 @@
   &__container {
     display: flex;
     margin: 0 auto;
-
-    // @include tablet {
-    //   max-width: 560px;
-    // }
   }
 
   &__profile-image {
@@ -75,9 +71,11 @@
     padding-top: 16px;
     border: 1px solid $nuetral-background;
     width: 100%;
+    resize: none;
 
-    &:active {
-      border: 1px solid $primary-color;
+    &:active,
+    &:focus {
+      outline-color: $primary-color;
     }
   }
 
