@@ -614,4 +614,53 @@ body {
   margin-bottom: 16px;
   font-weight: 500;
 }
-/*# sourceMappingURL=styles.css.map */
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (min-width: 1200px) {
+  .main {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+  }
+}
+
+.main_text-content {
+  margin: 0;
+}
+
+@media screen and (min-width: 1200px) {
+  .main_text-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .main_text-content__video-reading-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1200px) and (min-width: 1200px) {
+  .main_text-content__video-reading-container-left {
+    width: 65.9259%;
+    padding-right: 1.6667%;
+  }
+}
+/*# sourceMappingURL=App.css.map */

@@ -1,6 +1,6 @@
-@import "variables";
-@import "mixins";
-@import "typography";
+@import "./partials/variables";
+@import "./partials/mixins";
+@import "./partials/typography";
 
 body {
   margin: 0;

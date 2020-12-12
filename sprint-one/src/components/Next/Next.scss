@@ -1,0 +1,32 @@
+@import "../../styles/styles.scss";
+
+.next {
+  padding: 0 5%;
+
+  @include tablet {
+    padding: 0 3.125%;
+  }
+
+  @include desktop {
+    padding: 0 12.5%;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__video-container {
+    display: flex;
+    margin-bottom: 24px;
+  }
+
+  &__video-picture {
+    width: 120px;
+    height: 70px;
+  }
+
+  &__video-content-title {
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+}

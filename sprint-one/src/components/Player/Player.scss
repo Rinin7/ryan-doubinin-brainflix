@@ -1,0 +1,84 @@
+@import "../../styles/styles.scss";
+
+.player {
+  margin: 0;
+
+  @include desktop {
+    flex-direction: column;
+    width: 70%;
+  }
+
+  &__video-reading-container {
+    @include desktop {
+      display: flex;
+      width: 100%;
+
+      &-left {
+        @include desktop {
+          width: 65.9259%;
+          padding-right: 1.6667%;
+        }
+      }
+    }
+  }
+
+  &__video-text-container {
+    padding: 0 5%;
+
+    @include tablet {
+      padding: 0 3.125%;
+    }
+
+    @include desktop {
+      padding: 0 15%;
+      width: 75%;
+    }
+  }
+
+  &__video-title {
+    font-weight: 700;
+  }
+
+  &__video-publish {
+    display: flex;
+    margin-bottom: 32px;
+  }
+
+  &__video-author {
+    padding-right: 2.5%;
+    margin: 0;
+  }
+
+  &__video-date {
+    margin: 0;
+  }
+
+  &__video-social {
+    display: flex;
+    margin-bottom: 24px;
+  }
+
+  &__video-views {
+    padding-right: 24px;
+    margin: 0;
+
+    &-img {
+      padding-right: 2.5%;
+      margin: 0;
+    }
+  }
+
+  &__video-likes {
+    margin: 0;
+
+    &-img {
+      padding-right: 2.5%;
+    }
+  }
+
+  &__video-body {
+    border-top: 1px solid #e1e1e1;
+    padding-top: 24px;
+    margin: 0 0 40px;
+  }
+}

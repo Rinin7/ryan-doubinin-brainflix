@@ -1,0 +1,40 @@
+@import "./styles/styles.scss";
+
+.main {
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    flex-flow: row wrap;
+  }
+
+  &__text-container {
+    margin: 0;
+
+    @include desktop {
+      flex-direction: column;
+      width: 70%;
+    }
+
+    &__video-reading-container {
+      @include desktop {
+        display: flex;
+        width: 100%;
+
+        &-left {
+          @include desktop {
+            width: 65.9259%;
+            padding-right: 1.6667%;
+          }
+        }
+      }
+    }
+  }
+
+  &__next-video-container {
+    @include desktop {
+      flex-basis: 1%;
+      flex-grow: 1;
+    }
+  }
+}

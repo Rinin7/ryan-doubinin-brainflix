@@ -1,0 +1,16 @@
+@import "../../styles/styles.scss";
+
+.video {
+  width: 100%;
+  margin: 0;
+
+  &__video {
+    width: 100%;
+    height: 100%;
+
+    &-container {
+      margin-bottom: 32px;
+      height: calc(9 / 16 * 100vw);
+    }
+  }
+}
