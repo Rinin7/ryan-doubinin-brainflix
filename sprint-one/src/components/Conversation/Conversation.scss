@@ -2,18 +2,38 @@
 
 .conversation {
   padding: 0 5%;
-  border-bottom: 1px solid #e1e1e1;
+  position: relative;
 
   @include tablet {
     padding: 0 3.125%;
   }
 
   @include desktop {
-    padding: 0 12.5%;
+    padding: 0 0 0 12.5%;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    background: #e1e1e1;
+    bottom: 0;
+    left: 5%;
+    height: 1px;
+    width: 90%;
+
+    @include tablet {
+      left: 3.125%;
+      width: 93.75%;
+    }
+
+    @include desktop {
+      left: 12.5%;
+      width: 87.5%;
+    }
   }
 
   &__title {
-    margin-bottom: 32px;
+    margin: 0 0 32px;
   }
 
   &__container {
@@ -55,9 +75,16 @@
     font-size: 0.75rem;
     line-height: 1.25rem;
     display: block;
+    color: $nuetral-font;
 
     @include tablet {
       padding-bottom: 8px;
+    }
+  }
+
+  &__input-button-container {
+    @include tablet {
+      display: flex;
     }
   }
 
@@ -74,6 +101,10 @@
     width: 100%;
     resize: none;
 
+    @include tablet {
+      height: 48px;
+    }
+
     &:active,
     &:focus {
       outline-color: $primary-color;
@@ -83,7 +114,7 @@
   &__button {
     @include button-design;
     height: 48px;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     width: 232px;
 
     &:hover {
@@ -92,6 +123,7 @@
 
     @include tablet {
       max-width: 160px;
+      margin: 0 40px 24px 16px;
     }
 
     &-container {

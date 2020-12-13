@@ -15,6 +15,7 @@ function Video(props) {
             <img className="video__controls-play" src={Play} alt="an image of the play button" />
           </div>
           <div className="video__controls-progress">
+            <div className="video__controls-progress-bar"></div>
             <span className="video__controls-progress-numbers">{props.duration}</span>
           </div>
           <div className="video__controls-container-size-volume">

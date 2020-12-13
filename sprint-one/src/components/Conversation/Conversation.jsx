@@ -15,11 +15,13 @@ const Conversation = () => {
             <label class="conversation__input-label" for="conversation">
               JOIN THE CONVERSATION
             </label>
-            <textarea class="conversation__input-comment-field" id="conversation__comment" type="text" name="conversation" placeholder="Write comment here" required></textarea>
-            <div class="conversation__button-container">
-              <button class="conversation__button" type="submit">
-                COMMENT
-              </button>
+            <div className="conversation__input-button-container">
+              <textarea class="conversation__input-comment-field" id="conversation__comment" type="text" name="conversation" placeholder="Write comment here" required></textarea>
+              <div class="conversation__button-container">
+                <button class="conversation__button" type="submit">
+                  COMMENT
+                </button>
+              </div>
             </div>
           </form>
         </div>

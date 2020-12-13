@@ -30,13 +30,47 @@
     }
 
     @include desktop {
-      padding: 0 15%;
+      padding: 0 0 0 15%;
       width: 75%;
     }
   }
 
   &__video-title {
     font-weight: 700;
+    margin: 0 0 16px;
+
+    @include tablet {
+      font-size: 2.25rem;
+      line-height: 44px;
+      margin: 0 0 24px;
+    }
+  }
+
+  &__video-subheader-container {
+    position: relative;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      background: #e1e1e1;
+      bottom: -24px;
+      height: 1px;
+      width: 100%;
+
+      @include tablet {
+        bottom: 0;
+      }
+
+      @include desktop {
+        width: 113.4%;
+      }
+    }
   }
 
   &__video-publish {
@@ -47,10 +81,17 @@
   &__video-author {
     padding-right: 2.5%;
     margin: 0;
+    font-weight: 700;
+
+    @include tablet {
+      width: 98px;
+    }
   }
 
   &__video-date {
     margin: 0;
+    color: $nuetral-font;
+    font-weight: 400;
   }
 
   &__video-social {
@@ -63,7 +104,7 @@
     margin: 0;
 
     &-img {
-      padding-right: 2.5%;
+      padding-right: 8px;
       margin: 0;
     }
   }
@@ -71,14 +112,32 @@
   &__video-likes {
     margin: 0;
 
+    @include desktop {
+      padding-right: 32px;
+    }
+
     &-img {
-      padding-right: 2.5%;
+      padding-right: 8px;
     }
   }
 
   &__video-body {
-    border-top: 1px solid #e1e1e1;
+    // border-top: 1px solid #e1e1e1;
     padding-top: 24px;
     margin: 0 0 40px;
+    font-size: 0.8125rem;
+    line-height: 18px;
+
+    @include tablet {
+      width: 520px;
+      padding-right: 200px;
+      font-size: 0.875rem;
+      line-height: 22px;
+      margin-bottom: 64px;
+    }
+
+    @include desktop {
+      padding-right: 194px;
+    }
   }
 }

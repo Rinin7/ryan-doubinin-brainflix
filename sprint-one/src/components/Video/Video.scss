@@ -1,15 +1,12 @@
 @import "../../styles/styles.scss";
 
 .video {
-  // background-image: url("../../assets/images/video-list-0.jpg");
-  background-color: black;
   background-size: cover;
   justify-content: center;
   align-items: center;
   margin-bottom: 32px;
   height: calc(9 / 16 * 100vw);
   display: flex;
-  padding: 0 5%;
   position: relative;
 
   &__video {
@@ -17,7 +14,8 @@
 
     &-container {
       width: 100%;
-      max-width: 700px;
+      // max-width: 700px;
+      // max-height: 400px;
     }
   }
 
@@ -27,6 +25,7 @@
     bottom: 0;
     width: 90%;
     margin-bottom: 10px;
+    padding: 0 5%;
 
     &-play {
       border: 0;
@@ -53,7 +52,6 @@
       margin: 0 2.5%;
       border-radius: 4px;
       box-sizing: border-box;
-      position: relative;
 
       @include tablet {
         display: flex;
@@ -62,19 +60,14 @@
         padding-right: 2.0833%;
       }
 
-      &:before {
-        content: "";
-        position: absolute;
+      &-bar {
         border-top: 5px solid black;
-        top: 44%;
-        left: 50%;
         width: 84%;
-        transform: translate(-50%);
+        transform: translate(9.5%, 344%);
         border-radius: 4px;
 
         @include tablet {
-          left: 43%;
-          width: 75%;
+          transform: translate(-2.5%, -35%);
         }
       }
 
