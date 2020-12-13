@@ -1,30 +1,30 @@
 import React from "react";
 import "./Video.scss";
 import Play from "../../assets/icons/Icon-play.svg";
-import Pause from "../../assets/icons/Icon-pause.svg";
+// import Pause from "../../assets/icons/Icon-pause.svg";
 import Size from "../../assets/icons/Icon-fullscreen.svg";
 import Volume from "../../assets/icons/Icon-volume.svg";
 
-const Video = () => {
+function Video(props) {
   return (
     <div className="video">
       <div className="video__video-container">
-        <video className="video__video" />
-        {/* <div className="video__controls">
+        <video className="video__video" poster={props.image} alt={props.alt} />
+        <div className="video__controls">
           <div className="video__controls-play-container">
-            <img className="video__controls-play" src={Play} />
+            <img className="video__controls-play" src={Play} alt="an image of the play button" />
           </div>
           <div className="video__controls-progress">
-            <span className="video__controls-progress-numbers">0:00 / 0:42</span>
+            <span className="video__controls-progress-numbers">{props.duration}</span>
           </div>
           <div className="video__controls-container-size-volume">
-            <img className="video__controls-size" src={Size} />
-            <img className="video__controls-volume" src={Volume} />
+            <img className="video__controls-size" src={Size} alt="an image of the fullscreen button" />
+            <img className="video__controls-volume" src={Volume} alt="an image of the volume control button" />
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
-};
+}
 
 export default Video;

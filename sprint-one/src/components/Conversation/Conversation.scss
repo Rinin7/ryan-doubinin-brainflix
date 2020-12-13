@@ -2,6 +2,7 @@
 
 .conversation {
   padding: 0 5%;
+  border-bottom: 1px solid #e1e1e1;
 
   @include tablet {
     padding: 0 3.125%;
