@@ -9,7 +9,7 @@
   }
 
   @include desktop {
-    padding: 0 0 0 12.5%;
+    padding: 0;
   }
 
   &:after {
@@ -27,13 +27,14 @@
     }
 
     @include desktop {
-      left: 12.5%;
-      width: 87.5%;
+      width: 100%;
+      left: 0;
     }
   }
 
   &__title {
     margin: 0 0 32px;
+    font-weight: 700;
   }
 
   &__container {
@@ -124,6 +125,10 @@
     @include tablet {
       max-width: 160px;
       margin: 0 40px 24px 16px;
+    }
+
+    @include desktop {
+      margin: 0 32px 24px 16px;
     }
 
     &-container {

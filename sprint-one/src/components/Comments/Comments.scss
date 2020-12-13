@@ -10,7 +10,7 @@
   }
 
   @include desktop {
-    padding: 0 0 0 12.5%;
+    padding: 0;
   }
 
   &__history {
@@ -19,13 +19,13 @@
     padding-bottom: 24px;
     padding-top: 24px;
 
-    // &:first-of-type {
-    //   border-top: 1px solid $nuetral-background;
-    // }
+    @include tablet {
+      padding-right: 40px;
+    }
 
-    // &:last-of-type {
-    //   margin-bottom: 40px;
-    // }
+    @include desktop {
+      padding-right: 24px;
+    }
 
     &-profile {
       width: 40px;

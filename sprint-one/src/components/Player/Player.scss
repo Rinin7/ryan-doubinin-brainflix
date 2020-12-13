@@ -12,13 +12,6 @@
     @include desktop {
       display: flex;
       width: 100%;
-
-      &-left {
-        @include desktop {
-          width: 65.9259%;
-          padding-right: 1.6667%;
-        }
-      }
     }
   }
 
@@ -30,8 +23,7 @@
     }
 
     @include desktop {
-      padding: 0 0 0 15%;
-      width: 75%;
+      padding: 0;
     }
   }
 
@@ -68,7 +60,7 @@
       }
 
       @include desktop {
-        width: 113.4%;
+        width: 100%;
       }
     }
   }
@@ -122,7 +114,6 @@
   }
 
   &__video-body {
-    // border-top: 1px solid #e1e1e1;
     padding-top: 24px;
     margin: 0 0 40px;
     font-size: 0.8125rem;
@@ -130,14 +121,9 @@
 
     @include tablet {
       width: 520px;
-      padding-right: 200px;
       font-size: 0.875rem;
       line-height: 22px;
       margin-bottom: 64px;
-    }
-
-    @include desktop {
-      padding-right: 194px;
     }
   }
 }

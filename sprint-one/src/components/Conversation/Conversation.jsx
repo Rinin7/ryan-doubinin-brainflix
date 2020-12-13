@@ -5,7 +5,7 @@ import Mohan from "../../assets/images/Mohan-muruge.jpg";
 const Conversation = () => {
   return (
     <section class="conversation">
-      <h2 class="conversation__title">3 Comments</h2>
+      <h4 class="conversation__title">3 Comments</h4>
       <div class="conversation__container">
         <div class="conversation__profile-image-container">
           <img class="conversation__profile-image" src={Mohan} alt="profile picture for user" />

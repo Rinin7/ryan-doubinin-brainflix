@@ -7,6 +7,7 @@
 
     @include desktop {
       flex-flow: row wrap;
+      padding: 0 12.5%;
     }
   }
 
@@ -15,20 +16,14 @@
 
     @include desktop {
       flex-direction: column;
-      width: 70%;
+      width: 61.9444%;
+      padding-top: 32px;
     }
 
     &__video-reading-container {
       @include desktop {
         display: flex;
         width: 100%;
-
-        &-left {
-          @include desktop {
-            width: 65.9259%;
-            padding-right: 1.6667%;
-          }
-        }
       }
     }
   }
