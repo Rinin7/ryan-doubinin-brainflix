@@ -4,17 +4,17 @@ import EmptyProfile from "../../assets/images/emptyprofile.png";
 
 function Comments(props) {
   return (
-    <section class="comments">
-      <div class="comments__history">
-        <div class="comments__history-profile-container">
-          <img class="comments__history-profile" src={EmptyProfile} alt="profile picture for user" />
+    <section className="comments">
+      <div className="comments__history">
+        <div className="comments__history-profile-container">
+          <img className="comments__history-profile" src={EmptyProfile} alt="profile picture for user" />
         </div>
-        <div class="comments__history-text-container">
-          <div class="comments__history-header-container">
-            <div class="comments__history-name">{props.name}</div>
-            <div class="comments__history-date">{props.date}</div>
+        <div className="comments__history-text-container">
+          <div className="comments__history-header-container">
+            <div className="comments__history-name">{props.name}</div>
+            <div className="comments__history-date">{props.date}</div>
           </div>
-          <div class="comments__history-body">{props.comment}</div>
+          <div className="comments__history-body">{props.comment}</div>
         </div>
       </div>
     </section>

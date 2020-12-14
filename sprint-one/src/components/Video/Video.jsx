@@ -1,7 +1,6 @@
 import React from "react";
 import "./Video.scss";
 import Play from "../../assets/icons/Icon-play.svg";
-// import Pause from "../../assets/icons/Icon-pause.svg";
 import Size from "../../assets/icons/Icon-fullscreen.svg";
 import Volume from "../../assets/icons/Icon-volume.svg";
 
