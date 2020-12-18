@@ -14,7 +14,7 @@ const Header = () => {
       </div>
       <div class="header__user">
         <button class="header__user-button">UPLOAD</button>
-        <img class="header__user-picture" src={Mohan} />
+        <img class="header__user-picture" src={Mohan} alt="side view of a man" />
       </div>
     </header>
   );

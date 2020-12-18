@@ -4,21 +4,21 @@ import Mohan from "../../assets/images/Mohan-muruge.jpg";
 
 const Conversation = () => {
   return (
-    <section class="conversation">
-      <h4 class="conversation__title">3 Comments</h4>
-      <div class="conversation__container">
-        <div class="conversation__profile-image-container">
-          <img class="conversation__profile-image" src={Mohan} alt="profile picture for user" />
+    <section className="conversation">
+      <h4 className="conversation__title">3 Comments</h4>
+      <div className="conversation__container">
+        <div className="conversation__profile-image-container">
+          <img className="conversation__profile-image" src={Mohan} alt="profile picture for user" />
         </div>
-        <div class="conversation__input-container">
-          <form class="conversation__form">
-            <label class="conversation__input-label" for="conversation">
+        <div className="conversation__input-container">
+          <form className="conversation__form">
+            <label className="conversation__input-label" for="conversation">
               JOIN THE CONVERSATION
             </label>
             <div className="conversation__input-button-container">
-              <textarea class="conversation__input-comment-field" id="conversation__comment" type="text" name="conversation" placeholder="Write comment here" required></textarea>
-              <div class="conversation__button-container">
-                <button class="conversation__button" type="submit">
+              <textarea className="conversation__input-comment-field" id="conversation__comment" type="text" name="conversation" placeholder="Write comment here" required></textarea>
+              <div className="conversation__button-container">
+                <button className="conversation__button" type="submit">
                   COMMENT
                 </button>
               </div>
