@@ -1,0 +1,100 @@
+@import "../../styles/styles.scss";
+
+.header {
+  width: 100%;
+  margin: 0;
+  height: 169px;
+  padding: 0 5%;
+  box-sizing: border-box;
+
+  @include tablet {
+    padding: 0 3.125%;
+    display: flex;
+    align-items: center;
+    height: 80px;
+  }
+
+  @include desktop {
+    padding: 0 12.5%;
+  }
+
+  &__logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 100%;
+
+    @include tablet {
+      justify-content: flex-start;
+    }
+  }
+
+  &__search {
+    width: 288px;
+    height: 48px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    font-size: 1.0625rem;
+    background-image: url("../../assets/icons/Icon-search.svg");
+    background-repeat: no-repeat;
+    background-position: 12px 12px;
+    background-size: 20px;
+    padding: 11px 8px 11px 40px;
+    border-radius: 4px;
+    border: 1px solid $nuetral-background;
+    background-color: $nuetral-color;
+
+    &:active,
+    &:focus {
+      outline-color: $primary-color;
+    }
+
+    @include tablet {
+      margin: 0;
+      width: 225px;
+    }
+  }
+
+  &__search-container {
+    width: 288px;
+    margin: 0 auto;
+  }
+
+  &__user {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__user-button {
+    @include button-design;
+    padding-left: 20px;
+    height: 48px;
+    width: 224px;
+    margin: 0 16px 16px 0;
+    background-image: url("../../assets/icons/Icon-upload.svg");
+    background-repeat: no-repeat;
+    background-position: 64px 15px;
+
+    @include tablet {
+      background-position: 12px 15px;
+    }
+
+    &:hover {
+      background-color: $hover-color;
+    }
+
+    @include tablet {
+      margin: 0 24px;
+      width: 110px;
+    }
+  }
+
+  &__user-picture {
+    width: 48px;
+    height: 48px;
+    border-radius: 25px;
+    object-fit: cover;
+    object-position: 0% 0;
+  }
+}
