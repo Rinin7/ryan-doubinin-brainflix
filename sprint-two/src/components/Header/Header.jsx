@@ -5,16 +5,16 @@ import Mohan from "../../assets/images/Mohan-muruge.jpg";
 
 const Header = () => {
   return (
-    <header class="header">
-      <div class="header__logo-container">
-        <img class="header__logo" src={Logo} />
+    <header className="header">
+      <div className="header__logo-container">
+        <img className="header__logo" src={Logo} />
       </div>
-      <div class="header__search-container">
-        <input class="header__search" type="text" placeholder="Search" />
+      <div className="header__search-container">
+        <input className="header__search" type="text" placeholder="Search" />
       </div>
-      <div class="header__user">
-        <button class="header__user-button">UPLOAD</button>
-        <img class="header__user-picture" src={Mohan} alt="side view of a man" />
+      <div className="header__user">
+        <button className="header__user-button">UPLOAD</button>
+        <img className="header__user-picture" src={Mohan} alt="side view of a man" />
       </div>
     </header>
   );

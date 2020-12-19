@@ -2,7 +2,8 @@ import React from "react";
 import "./Comments.scss";
 import EmptyProfile from "../../assets/images/emptyprofile.png";
 
-function Comments(props) {
+function Comments({ commentList }) {
+  let { id, name, timestamp, comment } = commentList;
   return (
     <section className="comments">
       <div className="comments__history">
@@ -11,10 +12,10 @@ function Comments(props) {
         </div>
         <div className="comments__history-text-container">
           <div className="comments__history-header-container">
-            <div className="comments__history-name">{props.name}</div>
-            <div className="comments__history-date">{props.date}</div>
+            <div className="comments__history-name">{name}</div>
+            <div className="comments__history-date">{timestamp}</div>
           </div>
-          <div className="comments__history-body">{props.comment}</div>
+          <div className="comments__history-body">{comment}</div>
         </div>
       </div>
     </section>
