@@ -47,7 +47,7 @@ class HomePage extends React.Component {
           <div className="main__page-container">
             <div className="main__text-container">
               <Player key={this.state.mainVideo.id} currentVideo={this.state.mainVideo} />
-              <Conversation />
+              <Conversation comments={this.state.mainVideo.comments} />
               {this.state.mainVideo.comments.map((comment) => {
                 return <Comments key={comment.id} commentList={comment} />;
               })}

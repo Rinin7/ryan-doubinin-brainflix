@@ -1,11 +1,11 @@
 @mixin tablet {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet-breakpoint) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: $desktop-breakpoint) {
     @content;
   }
 }
@@ -20,4 +20,5 @@
   box-sizing: border-box;
   border: none;
   outline: none;
+  cursor: pointer;
 }

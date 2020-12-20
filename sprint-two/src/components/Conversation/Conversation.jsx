@@ -2,10 +2,10 @@ import React from "react";
 import "./Conversation.scss";
 import Mohan from "../../assets/images/Mohan-muruge.jpg";
 
-const Conversation = () => {
+function Conversation({ comments }) {
   return (
     <section className="conversation">
-      <h4 className="conversation__title">3 Comments</h4>
+      <h4 className="conversation__title">{comments.length} Comments</h4>
       <div className="conversation__container">
         <div className="conversation__profile-image-container">
           <img className="conversation__profile-image" src={Mohan} alt="profile picture for user" />
@@ -28,6 +28,6 @@ const Conversation = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Conversation;
