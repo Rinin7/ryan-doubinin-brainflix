@@ -1,14 +1,21 @@
 import "./App.scss";
 import React from "react";
-import Header from "../src/components/Header/Header";
-import HomePage from "../src/components/HomePage/HomePage";
+import Header from "./components/Header/Header";
+import HomePage from "./components/HomePage/HomePage";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Upload from "./components/Upload/Upload";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <HomePage />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route path="/" exact component={(routerProps) => <HomePage {...routerProps} />} />
+          <Route path="/upload" component={Upload} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 

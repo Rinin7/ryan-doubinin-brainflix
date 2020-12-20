@@ -1,11 +1,9 @@
 import React from "react";
-import Header from "../../Header/Header";
-import Thumbnail from "../../../assets/images/Upload-video-preview.jpg";
+import Thumbnail from "../../assets/images/Upload-video-preview.jpg";
 
 function Upload() {
   return (
     <div className="upload">
-      <Header />
       <h1 className="upload__title">Upload Video</h1>
       <div className="upload__thumbnail-container">
         <h3 className="upload__subtitle">VIDEO THUMBNAIL</h3>
