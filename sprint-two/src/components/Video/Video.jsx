@@ -7,7 +7,7 @@ import Volume from "../../assets/icons/Icon-volume.svg";
 function Video({ videoDisplay }) {
   let { id, image, duration, title } = videoDisplay;
   return (
-    <div className="video">
+    <div className="video" key={id}>
       <div className="video__video-container">
         <video className="video__video" poster={image} alt={title} />
         <div className="video__controls">

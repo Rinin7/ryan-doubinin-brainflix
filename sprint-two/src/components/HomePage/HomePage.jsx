@@ -21,10 +21,21 @@ class HomePage extends React.Component {
     axios.get(`${apiUrl}${endPoint}${apiKey}`).then((res) => {
       this.setState({ mainVideo: res.data });
 
-      console.log(this.state.mainVideo);
+      // console.log(this.state.mainVideo);
     });
     axios.get(`${apiUrl}${apiKey}`).then((res) => {
       this.setState({ sideVideos: res.data });
+    });
+  }
+
+  componentDidUpdate() {
+    const { match } = this.props;
+    axios.get(`${apiUrl}/${match.params.id}${apiKey}`).then((res) => {
+      console.log(match.params);
+      if (match.params.id !== this.state.mainVideo.id)
+        this.setState({
+          mainVideo: res.data,
+        });
     });
   }
 
@@ -44,9 +55,11 @@ class HomePage extends React.Component {
             <div className="main__next-video-container">
               <section class="next">
                 <h3 class="next__title">NEXT VIDEO</h3>
-                {this.state.sideVideos.map((sideVideo) => {
-                  return <Next key={sideVideo.id} videoList={sideVideo} />;
-                })}
+                {this.state.sideVideos
+                  .filter((sideVideo) => sideVideo.id !== this.state.mainVideo.id)
+                  .map((sideVideo) => (
+                    <Next key={sideVideo.id} videoList={sideVideo} />
+                  ))}
               </section>
             </div>
           </div>

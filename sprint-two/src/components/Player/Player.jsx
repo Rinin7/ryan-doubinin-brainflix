@@ -6,7 +6,7 @@ import VideoLikes from "../../assets/icons/Icon-likes.svg";
 function Player({ currentVideo }) {
   let { id, title, description, channel, timestamp, views, likes } = currentVideo;
   return (
-    <div className="player__video-text-container">
+    <div className="player__video-text-container" key={id}>
       <div className="player__video-text-container-left">
         <div className="player__video-title-container">
           <h1 className="player__video-title">{title}</h1>

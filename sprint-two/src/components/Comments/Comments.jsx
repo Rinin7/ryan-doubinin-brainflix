@@ -5,7 +5,7 @@ import EmptyProfile from "../../assets/images/emptyprofile.png";
 function Comments({ commentList }) {
   let { id, name, timestamp, comment } = commentList;
   return (
-    <section className="comments">
+    <section className="comments" key={id}>
       <div className="comments__history">
         <div className="comments__history-profile-container">
           <img className="comments__history-profile" src={EmptyProfile} alt="profile picture for user" />
