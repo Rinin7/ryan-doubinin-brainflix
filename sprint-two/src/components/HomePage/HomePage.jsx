@@ -21,7 +21,7 @@ class HomePage extends React.Component {
     axios.get(`${apiUrl}${endPoint}${apiKey}`).then((res) => {
       this.setState({ mainVideo: res.data });
 
-      // console.log(this.state.mainVideo);
+      console.log(this.state.mainVideo);
     });
     axios.get(`${apiUrl}${apiKey}`).then((res) => {
       this.setState({ sideVideos: res.data });
@@ -30,41 +30,42 @@ class HomePage extends React.Component {
 
   componentDidUpdate() {
     const { match } = this.props;
-    axios.get(`${apiUrl}/${match.params.id}${apiKey}`).then((res) => {
-      console.log(match.params);
-      if (match.params.id !== this.state.mainVideo.id)
-        this.setState({
-          mainVideo: res.data,
-        });
-    });
+    if (match.params.id) {
+      axios.get(`${apiUrl}/${match.params.id}${apiKey}`).then((res) => {
+        if (match.params.id !== this.state.mainVideo.id) {
+          this.setState({
+            mainVideo: res.data,
+          });
+          window.scrollTo(0, 0);
+        }
+      });
+    }
   }
 
   render() {
     return (
-      <>
-        <main className="main">
-          <Video key={this.state.mainVideo.id} videoDisplay={this.state.mainVideo} />
-          <div className="main__page-container">
-            <div className="main__text-container">
-              <Player key={this.state.mainVideo.id} currentVideo={this.state.mainVideo} />
-              <Conversation comments={this.state.mainVideo.comments} />
-              {this.state.mainVideo.comments.map((comment) => {
-                return <Comments key={comment.id} commentList={comment} />;
-              })}
-            </div>
-            <div className="main__next-video-container">
-              <section class="next">
-                <h3 class="next__title">NEXT VIDEO</h3>
-                {this.state.sideVideos
-                  .filter((sideVideo) => sideVideo.id !== this.state.mainVideo.id)
-                  .map((sideVideo) => (
-                    <Next key={sideVideo.id} videoList={sideVideo} />
-                  ))}
-              </section>
-            </div>
+      <main className="main">
+        <Video key={this.state.mainVideo.id} videoDisplay={this.state.mainVideo} />
+        <div className="main__page-container">
+          <div className="main__text-container">
+            <Player key={this.state.mainVideo.id} currentVideo={this.state.mainVideo} />
+            <Conversation comments={this.state.mainVideo.comments} />
+            {this.state.mainVideo.comments.map((comment, index) => {
+              return <Comments key={index} commentList={comment} />;
+            })}
           </div>
-        </main>
-      </>
+          <div className="main__next-video-container">
+            <section className="next">
+              <h3 className="next__title">NEXT VIDEO</h3>
+              {this.state.sideVideos
+                .filter((sideVideo) => sideVideo.id !== this.state.mainVideo.id)
+                .map((sideVideo) => (
+                  <Next key={sideVideo.id} videoList={sideVideo} />
+                ))}
+            </section>
+          </div>
+        </div>
+      </main>
     );
   }
 }

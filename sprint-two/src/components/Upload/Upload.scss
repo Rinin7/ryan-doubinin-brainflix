@@ -26,10 +26,14 @@
   }
 
   &__content-container {
+    @include tablet {
+      border-bottom: 1px solid $nuetral-background;
+      padding-bottom: 40px;
+    }
+
     @include desktop {
       display: flex;
       align-items: center;
-      border-bottom: 1px solid $nuetral-background;
     }
   }
 
@@ -56,6 +60,10 @@
       margin-bottom: 40px;
     }
 
+    @include desktop {
+      margin: 0;
+    }
+
     &-container {
       @include desktop {
         padding-right: 24px;
@@ -75,32 +83,39 @@
       border: none;
       padding: 0;
     }
-  }
 
-  &__form-title {
-    font-weight: 500;
-    font-size: 0.75rem;
-    line-height: 1.25rem;
-    color: $nuetral-font;
-    display: block;
+    &-input-container {
+      @include desktop {
+        width: 100%;
+        margin-top: 40px;
+      }
+    }
 
-    &-input {
-      width: 100%;
-      height: 48px;
-      border-radius: 2px;
-      box-sizing: border-box;
-      margin-bottom: 16px;
-      background-color: $nuetral-color;
-      font-family: "Avenir";
-      padding-left: 16px;
-      padding-top: 16px;
-      border: 1px solid $nuetral-background;
-      width: 100%;
-      resize: none;
+    &-title {
+      font-weight: 500;
+      font-size: 0.75rem;
+      line-height: 1.25rem;
+      color: $nuetral-font;
+      display: block;
 
-      &:active,
-      &:focus {
-        outline-color: $primary-color;
+      &-input {
+        width: 100%;
+        height: 48px;
+        border-radius: 2px;
+        box-sizing: border-box;
+        margin-bottom: 16px;
+        background-color: $nuetral-color;
+        font-family: "Avenir";
+        padding-left: 16px;
+        padding-top: 16px;
+        border: 1px solid $nuetral-background;
+        width: 100%;
+        resize: none;
+
+        &:active,
+        &:focus {
+          outline-color: $primary-color;
+        }
       }
     }
   }
@@ -119,9 +134,12 @@
     width: 100%;
     resize: none;
 
+    @include tablet {
+      margin: 0;
+    }
+
     @include desktop {
       height: 91px;
-      margin: 0;
     }
 
     &:active,

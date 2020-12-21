@@ -41,7 +41,7 @@
   }
 
   &__video-content-container {
-    max-width: 204px;
+    max-width: 166px;
   }
 
   &__video-content-title {
@@ -53,5 +53,6 @@
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    line-height: 18px;
   }
 }
