@@ -9,47 +9,87 @@ import axios from "axios";
 
 const apiUrl = "https://project-2-api.herokuapp.com/videos";
 const apiKey = "?api_key=050a5321-6e92-49da-b764-c58037ab9ac4";
-const endPoint = "/1af0jruup5gu";
+const homePageVideoId = "1af0jruup5gu";
 
 class HomePage extends React.Component {
   state = {
-    mainVideo: { comments: [{ comment: "" }] },
+    mainVideo: { comments: [{ comment: "", name: "" }] },
+    currentVideo: undefined,
     sideVideos: [],
+    newComment: "",
   };
 
-  componentDidMount() {
-    axios.get(`${apiUrl}${endPoint}${apiKey}`).then((res) => {
-      this.setState({ mainVideo: res.data });
+  getVideoData(refreshCurrentVideoData) {
+    const videoId = this.props.match.params.id ? this.props.match.params.id : homePageVideoId;
 
-      console.log(this.state.mainVideo);
-    });
-    axios.get(`${apiUrl}${apiKey}`).then((res) => {
-      this.setState({ sideVideos: res.data });
-    });
-  }
+    if (refreshCurrentVideoData === true || this.state.currentVideo === undefined || this.state.currentVideo !== videoId) {
+      axios.get(`${apiUrl}/${videoId}${apiKey}`).then((res) => {
+        const sortedComments = res.data.comments.sort(function (a, b) {
+          let timeA = a.timestamp;
+          let timeB = b.timestamp;
+          if (timeA > timeB) {
+            return -1;
+          }
+          if (timeA < timeB) {
+            return 1;
+          }
+          return 0;
+        });
 
-  componentDidUpdate() {
-    const { match } = this.props;
-    if (match.params.id) {
-      axios.get(`${apiUrl}/${match.params.id}${apiKey}`).then((res) => {
-        if (match.params.id !== this.state.mainVideo.id) {
-          this.setState({
-            mainVideo: res.data,
-          });
+        const videoData = {
+          ...res.data,
+          comments: sortedComments,
+        };
+
+        this.setState({ mainVideo: videoData, currentVideo: videoId });
+
+        if (!refreshCurrentVideoData) {
           window.scrollTo(0, 0);
         }
+      });
+      axios.get(`${apiUrl}${apiKey}`).then((res) => {
+        this.setState({ sideVideos: res.data });
       });
     }
   }
 
+  componentDidMount() {
+    this.getVideoData();
+  }
+
+  componentDidUpdate() {
+    this.getVideoData();
+  }
+
+  commentSubmit = (event) => {
+    const { match } = this.props;
+    event.preventDefault();
+    const post = {
+      name: "Ryan",
+      comment: this.state.newComment,
+    };
+    axios.post(`${apiUrl}/${match.params.id ? match.params.id : homePageVideoId}/comments/${apiKey}`, post).then((res) => {
+      this.getVideoData(true);
+    });
+    this.setState({
+      newComment: "",
+    });
+  };
+
+  handleCommentChange = (event) => {
+    this.setState({
+      newComment: event.target.value,
+    });
+  };
+
   render() {
     return (
       <main className="main">
-        <Video key={this.state.mainVideo.id} videoDisplay={this.state.mainVideo} />
+        <Video videoDisplay={this.state.mainVideo} />
         <div className="main__page-container">
           <div className="main__text-container">
-            <Player key={this.state.mainVideo.id} currentVideo={this.state.mainVideo} />
-            <Conversation comments={this.state.mainVideo.comments} />
+            <Player currentVideo={this.state.mainVideo} />
+            <Conversation commentSubmit={this.commentSubmit} handleCommentChange={this.handleCommentChange} comments={this.state.mainVideo.comments} newComment={this.state.newComment} />
             {this.state.mainVideo.comments.map((comment, index) => {
               return <Comments key={index} commentList={comment} />;
             })}
