@@ -1,0 +1,137 @@
+@import "../../styles/styles.scss";
+
+.header {
+  width: 100%;
+  margin: 0;
+  // height: 169px;
+  height: 52.816vw;
+  padding: 0 5%;
+  box-sizing: border-box;
+
+  @include tablet {
+    padding: 0 3.125%;
+    display: flex;
+    align-items: center;
+    height: 80px;
+  }
+
+  @include desktop {
+    padding: 0 12.5%;
+  }
+
+  &__logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vw;
+    width: 100%;
+
+    @include tablet {
+      justify-content: flex-start;
+      height: 48px;
+    }
+  }
+
+  &__logo {
+    height: 7.5vw;
+
+    @include tablet {
+      height: auto;
+    }
+  }
+
+  &__search {
+    width: 100%;
+    // height: 48px;
+    height: 15vw;
+    margin-bottom: 2.5%;
+    box-sizing: border-box;
+    font-size: 4vw;
+    background-image: url("../../assets/icons/Icon-search.svg");
+    background-repeat: no-repeat;
+    background-position: 5% 50%;
+    background-size: 4vw;
+    padding: 3.4375% 2.5% 3.4375% 12.5%;
+    border-radius: 4px;
+    border: 1px solid $nuetral-background;
+    background-color: $nuetral-color;
+
+    &:active,
+    &:focus {
+      outline-color: $primary-color;
+    }
+
+    @include tablet {
+      margin: 0;
+      width: 225px;
+      height: 48px;
+      padding: 11px 8px 11px 40px;
+      font-size: 1.0625rem;
+      background-size: 20px;
+    }
+
+    &-container {
+      // width: 288px;
+      margin: 0 auto;
+    }
+  }
+
+  &__user {
+    display: flex;
+    justify-content: center;
+
+    &-link {
+      width: 100%;
+      margin-right: 6.25%;
+
+      @include tablet {
+        margin: 0;
+      }
+    }
+  }
+
+  &__user-button {
+    @include button-design;
+    padding-left: 20px;
+    // height: 48px;
+    height: 15vw;
+    // width: 224px;
+    width: 100%;
+    margin: 0 16px 16px 0;
+    background-image: url("../../assets/icons/Icon-upload.svg");
+    background-repeat: no-repeat;
+    background-position: 31% 46%;
+    font-size: 4vw;
+    background-size: 4vw;
+
+    @include tablet {
+      background-position: 12px 15px;
+      height: 48px;
+      font-size: 1rem;
+      background-size: auto;
+    }
+
+    &:hover {
+      background-color: $hover-color;
+    }
+
+    @include tablet {
+      margin: 0 24px;
+      width: 110px;
+    }
+  }
+
+  &__user-picture {
+    // width: 48px;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 0% 0;
+
+    @include tablet {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}

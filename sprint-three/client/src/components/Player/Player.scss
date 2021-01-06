@@ -1,0 +1,126 @@
+@import "../../styles/styles.scss";
+
+.player {
+  margin: 0;
+
+  @include desktop {
+    flex-direction: column;
+    width: 70%;
+  }
+
+  &__video-reading-container {
+    @include desktop {
+      display: flex;
+      width: 100%;
+    }
+  }
+
+  &__video-text-container {
+    padding: 0 5%;
+
+    @include tablet {
+      padding: 0 3.125%;
+    }
+
+    @include desktop {
+      padding: 0;
+    }
+  }
+
+  &__video-title {
+    font-weight: 700;
+    margin: 0 0 16px;
+
+    @include tablet {
+      font-size: 2.25rem;
+      line-height: 44px;
+      margin: 0 0 24px;
+    }
+  }
+
+  &__video-subheader-container {
+    position: relative;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      background: #e1e1e1;
+      bottom: -24px;
+      height: 1px;
+      width: 100%;
+
+      @include tablet {
+        bottom: 0;
+      }
+
+      @include desktop {
+        width: 100%;
+      }
+    }
+  }
+
+  &__video-publish {
+    display: flex;
+    margin-bottom: 32px;
+  }
+
+  &__video-author {
+    padding-right: 2.5%;
+    margin: 0;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  &__video-date {
+    margin: 0;
+    color: $nuetral-font;
+    font-weight: 400;
+  }
+
+  &__video-social {
+    display: flex;
+    margin-bottom: 24px;
+  }
+
+  &__video-views {
+    padding-right: 24px;
+    margin: 0;
+
+    &-img {
+      padding-right: 8px;
+      margin: 0;
+    }
+  }
+
+  &__video-likes {
+    margin: 0;
+
+    @include desktop {
+      padding-right: 32px;
+    }
+
+    &-img {
+      padding-right: 8px;
+    }
+  }
+
+  &__video-body {
+    padding-top: 24px;
+    margin: 0 0 40px;
+    font-size: 0.8125rem;
+    line-height: 18px;
+
+    @include tablet {
+      width: 520px;
+      font-size: 0.875rem;
+      line-height: 22px;
+      margin-bottom: 64px;
+    }
+  }
+}

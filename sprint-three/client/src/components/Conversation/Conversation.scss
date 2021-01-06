@@ -1,0 +1,139 @@
+@import "../../styles/styles.scss";
+
+.conversation {
+  padding: 0 5%;
+  position: relative;
+
+  @include tablet {
+    padding: 0 3.125%;
+  }
+
+  @include desktop {
+    padding: 0;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    background: #e1e1e1;
+    bottom: 0;
+    left: 5%;
+    height: 1px;
+    width: 90%;
+
+    @include tablet {
+      left: 3.125%;
+      width: 93.75%;
+    }
+
+    @include desktop {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  &__title {
+    margin: 0 0 32px;
+    font-weight: 700;
+  }
+
+  &__container {
+    display: flex;
+    margin: 0 auto;
+  }
+
+  &__profile-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 25px;
+    margin-top: 20px;
+    object-fit: cover;
+    object-position: 0% 0;
+
+    @include tablet {
+      margin-top: 28px;
+    }
+
+    &-container {
+      width: 56px;
+
+      @include tablet {
+        width: 68px;
+      }
+    }
+  }
+  &__input-container {
+    flex-basis: auto;
+    flex-grow: 1;
+  }
+
+  &__form {
+    width: 100%;
+  }
+
+  &__input-label {
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    display: block;
+    color: $nuetral-font;
+
+    @include tablet {
+      padding-bottom: 8px;
+    }
+  }
+
+  &__input-button-container {
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__input-comment-field {
+    height: 96px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    background-color: $nuetral-color;
+    font-family: "Avenir";
+    padding-left: 16px;
+    padding-top: 16px;
+    border: 1px solid $nuetral-background;
+    width: 100%;
+    resize: none;
+
+    @include tablet {
+      height: 48px;
+    }
+
+    &:active,
+    &:focus {
+      outline-color: $primary-color;
+    }
+  }
+
+  &__button {
+    @include button-design;
+    height: 48px;
+    margin-bottom: 24px;
+    width: 232px;
+
+    &:hover {
+      background-color: #0065ad;
+    }
+
+    @include tablet {
+      max-width: 160px;
+      margin: 0 40px 24px 16px;
+    }
+
+    @include desktop {
+      margin: 0 32px 24px 16px;
+    }
+
+    &-container {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
