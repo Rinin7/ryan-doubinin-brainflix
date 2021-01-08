@@ -7,9 +7,9 @@ import Comments from "../Comments/Comments";
 import Next from "../Next/Next";
 import axios from "axios";
 
-const apiUrl = "https://project-2-api.herokuapp.com/videos";
-const apiKey = "?api_key=050a5321-6e92-49da-b764-c58037ab9ac4";
 const homePageVideoId = "1af0jruup5gu";
+
+const apiUrl = "http://localhost:8080/videos";
 
 class HomePage extends React.Component {
   state = {
@@ -21,9 +21,11 @@ class HomePage extends React.Component {
 
   getVideoData(refreshCurrentVideoData) {
     const videoId = this.props.match.params.id ? this.props.match.params.id : homePageVideoId;
+    console.log(this.props);
 
     if (refreshCurrentVideoData === true || this.state.currentVideo === undefined || this.state.currentVideo !== videoId) {
-      axios.get(`${apiUrl}/${videoId}${apiKey}`).then((res) => {
+      axios.get(`${apiUrl}/${videoId}`).then((res) => {
+        console.log(res.data);
         //function to sort comments in chronological order
         const sortedComments = res.data.comments.sort(function (a, b) {
           let timeA = a.timestamp;
@@ -49,7 +51,7 @@ class HomePage extends React.Component {
           window.scrollTo(0, 0);
         }
       });
-      axios.get(`${apiUrl}${apiKey}`).then((res) => {
+      axios.get(`${apiUrl}`).then((res) => {
         this.setState({ sideVideos: res.data });
       });
     }
@@ -70,7 +72,7 @@ class HomePage extends React.Component {
       name: "Ryan",
       comment: this.state.newComment,
     };
-    axios.post(`${apiUrl}/${match.params.id ? match.params.id : homePageVideoId}/comments/${apiKey}`, post).then((res) => {
+    axios.post(`${apiUrl}/${match.params.id ? match.params.id : homePageVideoId}/comments/`, post).then((res) => {
       this.getVideoData(true);
     });
     this.setState({
