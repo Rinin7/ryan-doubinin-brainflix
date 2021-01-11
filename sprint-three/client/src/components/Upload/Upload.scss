@@ -53,6 +53,7 @@
     width: 100%;
     height: calc(9 / 16 * 80vw);
     margin-bottom: 32px;
+    border-radius: 4px;
 
     @include tablet {
       width: 344px;

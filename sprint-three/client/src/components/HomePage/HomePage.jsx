@@ -21,11 +21,9 @@ class HomePage extends React.Component {
 
   getVideoData(refreshCurrentVideoData) {
     const videoId = this.props.match.params.id ? this.props.match.params.id : homePageVideoId;
-    console.log(this.props);
 
     if (refreshCurrentVideoData === true || this.state.currentVideo === undefined || this.state.currentVideo !== videoId) {
       axios.get(`${apiUrl}/${videoId}`).then((res) => {
-        console.log(res.data);
         //function to sort comments in chronological order
         const sortedComments = res.data.comments.sort(function (a, b) {
           let timeA = a.timestamp;
@@ -69,10 +67,9 @@ class HomePage extends React.Component {
     const { match } = this.props;
     event.preventDefault();
     const post = {
-      name: "Ryan",
       comment: this.state.newComment,
     };
-    axios.post(`${apiUrl}/${match.params.id ? match.params.id : homePageVideoId}/comments/`, post).then((res) => {
+    axios.post(`${apiUrl}/${match.params.id ? match.params.id : homePageVideoId}/comments`, post).then((res) => {
       this.getVideoData(true);
     });
     this.setState({
@@ -86,13 +83,33 @@ class HomePage extends React.Component {
     });
   };
 
+  likesHandler = (event) => {
+    const { match } = this.props;
+
+    // likeChange variable to update the state of liked to send to the server
+    const likeChange = {
+      liked: !this.state.mainVideo.liked,
+    };
+
+    axios.put(`${apiUrl}/${match.params.id ? match.params.id : homePageVideoId}/likes`, likeChange).then((res) => {
+      // update the state of mainVideo with existing data and only changing like/liked data
+      this.setState({
+        mainVideo: {
+          ...this.state.mainVideo,
+          likes: res.data.likes,
+          liked: res.data.liked,
+        },
+      });
+    });
+  };
+
   render() {
     return (
       <main className="main">
         <Video videoDisplay={this.state.mainVideo} />
         <div className="main__page-container">
           <div className="main__text-container">
-            <Player currentVideo={this.state.mainVideo} />
+            <Player currentVideo={this.state.mainVideo} likesHandler={this.likesHandler} />
             <Conversation commentSubmit={this.commentSubmit} handleCommentChange={this.handleCommentChange} comments={this.state.mainVideo.comments} newComment={this.state.newComment} />
             {this.state.mainVideo.comments.map((comment, index) => {
               return <Comments key={index} commentList={comment} />;

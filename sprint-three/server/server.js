@@ -2,13 +2,11 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || process.argv[2] || 8080;
 const cors = require("cors");
-const videos = require("./videos.json");
-const bodyParser = require("body-parser");
+let videos = require("./videos.json");
 const { v4: uuidv4 } = require("uuid");
 
 app.use(cors());
 app.use(express.json());
-app.use(bodyParser.urlencoded());
 
 app.get("/", (req, res) => {
   res.status(200).send(videos[0]);
@@ -16,6 +14,34 @@ app.get("/", (req, res) => {
 
 app.get("/videos", (req, res) => {
   res.status(200).send(videos);
+});
+
+app.get("/videos/:id/comments", (req, res) => {
+  requestedVideo = req.params.id;
+
+  let requestedVideoData = videos.find((video) => video.id == requestedVideo);
+
+  res.status(200).send(requestedVideoData.comments);
+});
+
+app.post("/videos/:id/comments", (req, res) => {
+  const { comment } = req.body;
+
+  requestedVideo = req.params.id;
+
+  let requestedVideoData = videos.find((video) => video.id == requestedVideo);
+
+  let newComment = {
+    id: uuidv4(),
+    name: "Ryan",
+    comment,
+    likes: 0,
+    timestamp: Date.now(),
+  };
+
+  requestedVideoData.comments.push(newComment);
+
+  res.status(201).send(comment);
 });
 
 app.post("/videos", (req, res) => {
@@ -30,7 +56,7 @@ app.post("/videos", (req, res) => {
     views: "9,999,999",
     likes: "696,969",
     duration: "4:20",
-    timestamp: 1545162149000,
+    timestamp: Date.now(),
     comments: [
       {
         name: "Micheal Lyons",
@@ -56,8 +82,6 @@ app.post("/videos", (req, res) => {
     ],
   };
 
-  console.log(video);
-
   videos.push(video);
 
   res.status(201).send(video);
@@ -69,6 +93,37 @@ app.route("/videos/:id").get((req, res) => {
   let requestedVideoData = videos.find((video) => video.id == requestedVideo);
 
   return res.status(200).send(requestedVideoData);
+});
+
+app.route("/videos/:videoId/likes").put((req, res) => {
+  requestedVideo = req.params.videoId;
+
+  // newLikes a variable to use to send the number of likes to the client
+  let newLikes;
+
+  videos = videos.map((video) => {
+    if (video.id === requestedVideo) {
+      // variable to turn likes data to a number in order to increment/decrease it by 1
+      let likesAsNumber = parseInt(video.likes.replace(",", ""));
+      // newLikes is increased or decreased based on liked boolean being true/false and then converted into a string to send back to the client side
+      newLikes = (req.body.liked ? likesAsNumber + 1 : likesAsNumber - 1).toLocaleString();
+
+      // return video object data and only update likes and liked data
+      return {
+        ...video,
+        likes: newLikes,
+        liked: req.body.liked,
+      };
+    } else {
+      return video;
+    }
+  });
+
+  if (newLikes === undefined) {
+    return res.status(404).send({ Error: "Video ID not found." });
+  }
+
+  return res.status(200).send({ likes: newLikes, liked: req.body.liked });
 });
 
 app.listen(port, () => {

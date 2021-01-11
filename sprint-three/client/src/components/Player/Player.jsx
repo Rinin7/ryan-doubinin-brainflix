@@ -1,11 +1,11 @@
 import React from "react";
 import "./Player.scss";
 import VideoViews from "../../assets/icons/Icon-views.svg";
-import VideoLikes from "../../assets/icons/Icon-likes.svg";
 
-function Player({ currentVideo }) {
-  let { title, description, channel, views, likes } = currentVideo;
+function Player({ currentVideo, likesHandler }) {
+  let { title, description, channel, views, likes, liked } = currentVideo;
   let date = new Date(currentVideo.timestamp);
+  let likedClass = liked ? " player__video-likes-img-red" : "";
   return (
     <div className="player__video-text-container">
       <div className="player__video-text-container-left">
@@ -20,7 +20,7 @@ function Player({ currentVideo }) {
           <div className="player__video-social">
             <img className="player__video-views-img" src={VideoViews} alt="grey eyeball to represent views" />
             <h4 className="player__video-views">{views}</h4>
-            <img className="player__video-likes-img" src={VideoLikes} alt="grey heart to represent likes" />
+            <button className={"player__video-likes-img" + likedClass} onClick={likesHandler} alt="grey heart to represent likes"></button>
             <h4 className="player__video-likes">{likes}</h4>
           </div>
         </div>

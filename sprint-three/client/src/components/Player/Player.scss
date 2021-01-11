@@ -100,13 +100,25 @@
 
   &__video-likes {
     margin: 0;
+    padding-left: 8px;
 
     @include desktop {
       padding-right: 32px;
     }
 
     &-img {
-      padding-right: 8px;
+      background-image: url("../../assets/icons/Icon-likes.svg");
+      object-fit: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      width: 25px;
+      height: 25px;
+      box-sizing: border-box;
+      border-radius: 4px;
+
+      &-red {
+        background-image: url("../../assets/icons/Icon-likes2.png");
+      }
     }
   }
 
